@@ -1,0 +1,15 @@
+version: "3.7"
+
+services:
+  api:
+    container_name: "grupo_sbf_api"
+    build:
+      context: .
+    ports:
+      - "8080:8080"
+    env_file: .env
+    volumes:
+      - .:/app/src
+    command: "uvicorn main:get_app --port 8080 --reload"
+    expose:
+      - 8080
