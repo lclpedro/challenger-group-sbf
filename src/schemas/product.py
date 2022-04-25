@@ -1,3 +1,5 @@
+from typing import Optional
+
 from pydantic import Field
 
 from src.schemas import CustomBaseModel
@@ -11,9 +13,9 @@ class PriceSchema(CustomBaseModel):
 
 class PricesSchema(CustomBaseModel):
     brl: PriceSchema
-    usd: PriceSchema
-    eur: PriceSchema
-    inr: PriceSchema
+    usd: Optional[PriceSchema]
+    eur: Optional[PriceSchema]
+    inr: Optional[PriceSchema]
 
 
 class ProductSchema(CustomBaseModel):

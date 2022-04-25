@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from repository.products import RepositoryProducts
+from src.repository.products import RepositoryProducts
 from src.repository.quotes import RepositoryQuotes
 from src.schemas.product import ProductSchema
 from src.services.products import ServiceProducts

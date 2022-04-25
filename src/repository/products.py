@@ -1,3 +1,5 @@
+from typing import Dict
+
 from src.domain.prices import Price, Prices
 from src.domain.product import Product
 
@@ -13,7 +15,7 @@ class RepositoryProducts:
     def __init__(self, product=product_mock):
         self.product = product
 
-    def get_product(self) -> Product:
+    def get_product(self, quotes: Dict) -> Product:
         product = Product(
             name=self.product["name"],
             image=self.product["image"],
@@ -23,4 +25,5 @@ class RepositoryProducts:
                 )
             ),
         )
+        product.prices.calc_prices_country(quotes=quotes)
         return product

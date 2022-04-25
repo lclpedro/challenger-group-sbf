@@ -1,7 +1,7 @@
 from fastapi.routing import APIRouter
 
-from .resources import products
+from .resources.products import products_router
 
 router = APIRouter(prefix="/api/v1")
 
-router.include_router(products)
+router.include_router(products_router)

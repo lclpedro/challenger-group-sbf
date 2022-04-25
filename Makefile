@@ -5,4 +5,7 @@ setup:
 	poetry run pre-commit install
 
 run:
-	poetry run
+	SBF_ENVIRONMENT=development poetry run python main.py
+
+test:
+	poetry run pytest --cov -vvvvv

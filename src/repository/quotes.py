@@ -12,7 +12,7 @@ class RepositoryQuotes:
     def __init__(
         self,
         base_url_service_quote: str = settings.base_url_service_quote,
-        coin_default: str = settings.coin_defualt,
+        coin_default: str = settings.coin_default,
         coins_enabled: List = settings.coins_enabled,
         logger=_logger,
     ):
@@ -24,7 +24,7 @@ class RepositoryQuotes:
     def _mount_pairs_coins(self) -> str:
         str_coins = ""
         for coin in self.coins_enabled:
-            str_coins += f"{self.coin_default}-{coin},"
+            str_coins += f"{coin}-{self.coin_default},"
         self.logger.debug(f"Pairs Coins: {str_coins}")
         return str_coins[:-1]
 
@@ -39,6 +39,6 @@ class RepositoryQuotes:
         if _quotes.status_code is not requests.codes.OK:
             _quotes.raise_for_status()
 
-        quotes = _quotes.json
+        quotes = _quotes.json()
         self.logger.debug(f"Response Quotes: {quotes}")
         return quotes
