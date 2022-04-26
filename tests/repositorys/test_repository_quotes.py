@@ -9,7 +9,7 @@ def test_repository_quotes():
     with requests_mock.Mocker() as mocker:
         mocker.get(
             f"{settings.BASE_URL_SERVICE_QUOTE}/USD-BRL,EUR-BRL,INR-BRL",
-            pytest.QUOTES_MOCK,
+            json=pytest.QUOTES_MOCK,
         )
         repo = RepositoryQuotes()
         assert isinstance(repo.get_quotes_coins(), dict)

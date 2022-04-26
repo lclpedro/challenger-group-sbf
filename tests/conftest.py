@@ -1,8 +1,20 @@
 import os
 
 import pytest
+import responses
+from fastapi.testclient import TestClient
+
+from config import settings
+from main import get_app
 
 os.environ["SBF_ENVIRONMENT"] = "tester"
+
+
+@pytest.fixture
+def client():
+    client = TestClient(get_app())
+    return client
+
 
 quotes_mock = {
     "USDBRL": {
@@ -47,3 +59,14 @@ quotes_mock = {
 }
 
 pytest.QUOTES_MOCK = quotes_mock
+
+
+@pytest.fixture
+def response_mock_quotes():
+    return responses.add(
+        responses.GET,
+        f"{settings.BASE_URL_SERVICE_QUOTE}/USD-BRL,EUR-BRL,INR-BRL",
+        json=quotes_mock,
+        status=200,
+        content_type="application/json",
+    )
