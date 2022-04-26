@@ -9,3 +9,6 @@ run:
 
 test:
 	poetry run pytest --cov -vvvvv
+
+run-docker:
+	docker-compose up api
