@@ -10,5 +10,8 @@ run:
 test:
 	poetry run pytest --cov -vvvvv
 
-run-docker:
+docker-run:
 	docker-compose up api
+
+docker-test:
+	docker-compose run api bash -c "pytest --cov=src --color=yes -vvvv"

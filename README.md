@@ -5,6 +5,10 @@ Operational System: Linux or MacOS
 Python version: 3.9+
 Poetry
 
+Or
+
+Docker Service
+
 ## Execution Service Local - To development
 1. Execute setup (is required poetry)
 ```shell
@@ -18,7 +22,7 @@ Poetry
 ```shell
 > make test
 ```
-## Execution service with docker service.
+## Execution service with docker.
 
 ```shell
 > make run-docker
@@ -37,3 +41,5 @@ docker run -p 8080:8080 --name group_sbf_api group_sbf
 To access documentation API. Access with running application:
 
 http://localhost:8080/docs
+
+## Design Archtecture API Service

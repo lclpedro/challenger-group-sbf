@@ -13,7 +13,7 @@ WORKDIR /app
 RUN pip install --upgrade pip
 RUN pip install poetry
 RUN poetry config virtualenvs.create false
-RUN poetry install --no-interaction --no-ansi --no-dev
+RUN poetry install --no-interaction --no-ansi
 
 ADD . /app
 EXPOSE 8080
