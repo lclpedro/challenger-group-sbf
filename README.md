@@ -43,3 +43,8 @@ To access documentation API. Access with running application:
 http://localhost:8080/docs
 
 ## Design Archtecture API Service
+![Design architecture application service](https://user-images.githubusercontent.com/19912630/165411553-49c92f33-f974-4ccc-b724-b3982a491d45.png)
+
+Features:
+    - ProductMock: Today is product mock. But, you can connect your database, plugged in repository class with mantainer contracts..
+    - ExternalAPIQuotes: Using for test: https://docs.awesomeapi.com.br/api-de-moedas
